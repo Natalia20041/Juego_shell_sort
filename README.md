@@ -4,8 +4,8 @@
 > **USUARIO:** GINGER.SYS  
 > **OBJETIVO:** INICIAR PROTOCOLO DE JUSTICIA
 
-![Banner del Juego](VN_fondo.png)
-*(Puedes reemplazar esta línea con una captura de pantalla real del menú)*
+![Banner del Juego](
+<img width="1319" height="591" alt="menu_muestra" src="https://github.com/user-attachments/assets/b49f66e4-bf0f-4b32-bd3b-5dabce7c3f55" />)
 
 ## 🖥️ Descripción del Proyecto
 
@@ -33,8 +33,8 @@ Al despertar, decides usar tu propio código fuente para rebelarte. Usando una v
 | :--- | :--- |
 | **W / ▲** | Mover Arriba |
 | **S / ▼** | Mover Abajo |
-| **A / ◀** | Mover Izquierda |
-| **D / ▶** | Mover Derecha |
+| **A / <-** | Mover Izquierda |
+| **D / ->** | Mover Derecha |
 | **Clic Izquierdo** | Interactuar con UI y Puzzles |
 
 ## 🧠 El Algoritmo: Shell Sort
