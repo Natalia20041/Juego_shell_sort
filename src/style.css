@@ -397,3 +397,124 @@ canvas {
 @keyframes noiseScroll { 0% { background-position: 0 0; filter: hue-rotate(0deg); } 100% { background-position: 0 100px; filter: hue-rotate(360deg); } }
 
 @keyframes breathing { 0% { filter: drop-shadow(0 0 10px #00ffff) saturate(1.5); } 50% { filter: drop-shadow(0 0 25px #00ffff) saturate(1.8) brightness(1.1); } 100% { filter: drop-shadow(0 0 10px #00ffff) saturate(1.5); } }
+
+/* =========================================
+   ESTILOS DE LA FICHA DE GINGER (IMAGEN 1)
+   ========================================= */
+
+/* Contenedor principal estilo tarjeta */
+.ginger-profile-card {
+    width: 900px;
+    height: 550px;
+    background-color: #0d1117; /* Fondo oscuro */
+    border: 3px solid #ffbd2e; /* Borde Amarillo/Dorado */
+    display: flex;
+    flex-direction: row;
+    padding: 30px;
+    position: relative;
+    box-shadow: 0 0 40px rgba(255, 189, 46, 0.15);
+    background-image: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 2px, 3px 100%;
+}
+
+/* Columna Izquierda (Imagen) */
+.ginger-visual {
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-right: 1px dashed #333; /* Separador sutil */
+}
+
+.ginger-sprite-large {
+    width: 100%;
+    max-width: 250px;
+    image-rendering: pixelated;
+    filter: drop-shadow(0 0 15px rgba(255, 189, 46, 0.4)); /* Resplandor amarillo suave */
+    animation: floatGinger 4s ease-in-out infinite;
+}
+
+@keyframes floatGinger {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Columna Derecha (Datos) */
+.ginger-data {
+    width: 65%;
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Título Amarillo */
+.bio-title {
+    font-family: 'Press Start 2P', cursive;
+    color: #ffbd2e; /* Amarillo */
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    margin-top: 0;
+    text-shadow: 2px 2px 0px #000;
+}
+
+/* Línea divisoria punteada */
+.bio-divider {
+    width: 100%;
+    border-bottom: 2px dotted #555;
+    margin-bottom: 20px;
+}
+
+/* Cuerpo del texto */
+.bio-body {
+    font-family: 'VT323', monospace;
+    font-size: 1.4rem;
+    color: #fff;
+    line-height: 1.4;
+    overflow-y: auto;
+    flex-grow: 1;
+    padding-right: 10px; /* Espacio para scrollbar si es necesario */
+}
+
+.bio-body p {
+    margin-bottom: 15px;
+}
+
+.quote {
+    color: #ccc;
+    font-style: italic;
+}
+
+.text-danger {
+    color: #ff0055; /* Texto rojo al final */
+    text-shadow: 0 0 5px rgba(255, 0, 85, 0.5);
+}
+
+/* Botón Verde Grande (Abajo a la izquierda de la columna de texto) */
+.btn-cerrar-registro {
+    background-color: #00ff88; /* Verde Neón */
+    color: #000;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    padding: 15px 30px;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 20px;
+    align-self: flex-start; /* Alineado a la izquierda */
+    box-shadow: 4px 4px 0px #005f33;
+    transition: transform 0.1s;
+}
+
+.btn-cerrar-registro:hover {
+    background-color: #fff;
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px #005f33;
+}
+
+/* Ajuste scrollbar para que se vea retro */
+.bio-body::-webkit-scrollbar { width: 8px; }
+.bio-body::-webkit-scrollbar-track { background: #000; }
+.bio-body::-webkit-scrollbar-thumb { background: #ffbd2e; }
