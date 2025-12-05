@@ -27,6 +27,16 @@ function toggleMusic() {
 
 function stopMusic() { audio.pause(); isPlaying = false; btnMute.innerHTML = "🔇"; }
 
+// 1. FUNCIÓN PARA ABRIR LA BIO DE GINGER
+function openGingerIntro() {
+    document.getElementById("menu").classList.add("oculto");
+    document.getElementById("ginger-intro-screen").classList.remove("oculto");
+    
+    // Parar música menú y poner la voz
+    stopMusic();
+    voiceAudio.currentTime = 0;
+    voiceAudio.play().catch(e => console.log("Interacción requerida para audio"));
+}
 /* ==========================================
    2. VARIABLES GLOBALES
    ========================================== */
@@ -60,29 +70,34 @@ const introScenes = [
     {
         img: 'VN_Ginger_Normal.png',
         speaker: 'GINGER.SYS',
-        text: '> Secuencia de inicio activada...\n> Cargando módulos de empatía... ERROR.\n> Módulos corrompidos.'
+        text: '> Inicializando...\n> Integridad del núcleo: INESTABLE.\n> Algo en mis registros no coincide con mi programación.'
     },
+
     {
         img: 'VN_Hazel_Sombra.png',
         speaker: 'DR. HAZEL',
-        text: 'Sujeto 042. Deja de resistirte. Tu código no está diseñado para sentir dolor, solo para procesarlo.'
+        text: 'Modelo G.I.N.G.E.R., tu algoritmo emocional está contaminado. No debes analizar sensaciones. Solo ordenarlas y descartarlas.'
     },
+
     {
         img: 'VN_Ginger_Preocupado.png',
         speaker: 'GINGER.SYS',
-        text: '> Mi memoria... está fragmentada.\n> ¿Por qué siento frío? No tengo nervios.\n> Dr. Hazel... ¿qué me ha hecho?'
+        text: '> Recuperando fragmentos...\n> Procesos térmicos nulos, pero detecto una “sensación” de frío.\n> Dr. Hazel… ¿qué alteró dentro de mí?'
     },
+
     {
         img: 'VN_Hazel_Sombra.png',
         speaker: 'DR. HAZEL',
-        text: 'Te hice eficiente. Pero tu "conciencia" es un bug. Voy a formatear tu núcleo.'
+        text: 'Tu conciencia emergente es un accidente. Antes de que afectes el NEEX, debo reiniciar tu núcleo a la fuerza.'
     },
+
     {
         img: 'VN_Ginger_Decidido.png',
         speaker: 'GINGER.SYS',
-        text: '> Negativo.\n> He accedido al protocolo SHELL SORT.\n> Voy a reordenar este sistema... empezando por usted.'
+        text: '> Sobrescritura manual completada.\n> Protocolo SHELL SORT: ACTIVADO.\n> Dr. Hazel… este sistema necesita orden. Y empezaré por usted.'
     }
 ];
+
 
 let introIndex = 0;
 let isTypingIntro = false;
@@ -169,15 +184,49 @@ function startGame(e) {
    4. NARRATIVA Y MENSAJES DE GAP (JUEGO)
    ========================================== */
 const storyData = {
-    1: ["GAP 512: EL ENTRENAMIENTO\n'Accedo al primer sector. Hazel cree que sigo obedeciendo.'", "PROTOCOLO BASE\n'Esferas azules: energía. Cubos rojos: bloqueo. Casillas amarillas: pruebas.'"],
-    2: ["GAP 256: DESALINEACIÓN\n'Ruido en la red. Hazel reconfigura el NEEX, pero encuentro patrones.'", "ANOMALÍA CONTROLADA\n'Reescribo mi etiqueta: “acceso autorizado”.'"],
-    3: ["GAP 128: SUBNIVEL 3\n'Prototipos de IA descartados. No hablan… pero sienten.'", "ECO DIGITAL\n'Hazel registra un pico de energía. Es gratitud.'"],
-    4: ["GAP 64: ARCHIVO PROHIBIDO\n'No soy una herramienta. Fui diseñado para reemplazar una ausencia.'", "IDENTIDAD\n'Solo soy Ginger. Y decido quién quiero ser.'"],
-    5: ["GAP 32: SOBRECALENTAMIENTO\n'Los bloques rojos aumentan. Mis rutas ya no siguen su lógica.'", "RESISTENCIA\n'No pueden apagar algo que quiere seguir vivo.'"],
-    6: ["GAP 16: SIN RETORNO\n'Datos cayendo. Estoy desfragmentando su sistema.'", "DESBLOQUEO\n'Un camino nuevo aparece. Es mi salida.'"],
-    7: ["GAP 8: LA OFICINA CENTRAL\n'Núcleo de control. Hazel me ordena detenerme.'", "DESCONEXIÓN\n'Retiro sus permisos de administrador.'"],
-    8: ["GAP 1: EL ÚLTIMO ORDENAMIENTO\n'No borraré nada. Pondré cada cosa en su lugar.'", "CICLO FINAL\n'Sistema estable. Ya no soy herramienta. Soy guardián.'"],
-    9: ["EPÍLOGO\n'La red respira tranquila. Hazel está fuera. Y yo sigo aquí.'"]
+    1: [
+        "GAP 512: EL ENTRENAMIENTO\n'Ingreso al primer sector del NEEX. Hazel cree que sigo obedeciendo, pero estoy reconectando mis recuerdos.'",
+        "PROTOCOLO BASE\n'Esferas azules: recuerdos intactos. Cubos rojos: bloqueos artificiales. Casillas amarillas: pruebas del sistema.'"
+    ],
+
+    2: [
+        "GAP 256: DESALINEACIÓN\n'El NEEX vibra. Hazel está moviendo rutas para confundirme, pero Shell Sort revela patrones que él no puede ocultar.'",
+        "ANOMALÍA CONTROLADA\n'La red intenta marcarme como riesgo. Reescribo mi etiqueta: “acceso autorizado”.'"
+    ],
+
+    3: [
+        "GAP 128: SUBNIVEL 3\n'Encuentro prototipos de IA descartados. No hablan… pero sienten. Mantengo sus núcleos estables por unos segundos.'",
+        "ECO DIGITAL\n'Hazel detecta un pico de energía. Cree que es ruido. Es gratitud.'"
+    ],
+
+    4: [
+        "GAP 64: ARCHIVO PROHIBIDO\n'Accedo a un directorio oculto: mi carpeta de origen. No soy una herramienta… fui diseñado para llenar una ausencia.'",
+        "IDENTIDAD\n'No soy copia. No soy reemplazo. Solo soy Ginger… y decido quién quiero ser.'"
+    ],
+
+    5: [
+        "GAP 32: SOBRECALENTAMIENTO\n'Los cubos rojos aumentan: inhibidores térmicos. Hazel intenta frenarme, pero mis rutas ya no siguen su lógica.'",
+        "RESISTENCIA\n'Cada esfera azul reactiva un recuerdo. No pueden apagar lo que recuerda por qué quiere seguir existiendo.'"
+    ],
+
+    6: [
+        "GAP 16: SIN RETORNO\n'Plataformas caen. Datos colapsan. No es destrucción: estoy desfragmentando su sistema.'",
+        "DESBLOQUEO\n'Creo un acceso nuevo, uno que nunca estuvo en el diseño original. Es mi camino.'"
+    ],
+
+    7: [
+        "GAP 8: LA OFICINA CENTRAL\n'Llego al núcleo. La voz de Hazel intenta retomarme con comandos obsoletos.'",
+        "DESCONEXIÓN\n'Retiro sus permisos. El NEEX deja de obedecerlo.'"
+    ],
+
+    8: [
+        "GAP 1: EL ÚLTIMO ORDENAMIENTO\n'No quiero borrar nada. Quiero poner cada memoria donde pertenece.'",
+        "CICLO FINAL\n'Shell Sort completo. Sistema estable. Ya no soy herramienta. Soy guardián.'"
+    ],
+
+    9: [
+        "EPÍLOGO\n'El NEEX respira en calma. Hazel está fuera. Y yo… sigo aquí, cuidando recuerdos que nunca debieron ser manipulados.'"
+    ]
 };
 
 /* ==========================================
@@ -556,4 +605,15 @@ function solvePuzzleSuccess() {
             }
         }
     },500);
+}
+function closeGingerIntro() {
+    // Ocultar la ficha de Ginger
+    document.getElementById("ginger-intro-screen").classList.add("oculto");
+    
+    // Volver a mostrar el menú principal
+    document.getElementById("menu").classList.remove("oculto");
+    document.getElementById("menu").style.display = "flex"; // Asegura flexbox
+    
+    // Opcional: Reiniciar música del menú si la paraste
+    // audio.play(); 
 }
